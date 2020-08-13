@@ -1,0 +1,19 @@
+<div>
+	<h1 class="title">User info</h1>
+	<%= render 'users/error' %>
+	<%= form_for(@user) do |f| %>
+	<div class="field">
+		<span class="form-title"><%= f.label :name %></span>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<span class="form-title">Image</span><br>
+		<%= f.attachment_field :profile_image, placeholder: "ファイルを選択" %>
+	</div>
+	<div class="field">
+		<span class="form-title">Introduction</span>
+		<%= f.text_area :introduction %>
+	</div>
+	<%= f.submit %>
+	<% end %>
+</div>

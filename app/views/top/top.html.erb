@@ -1,0 +1,17 @@
+<div id="notice">
+	<%= flash[:notice] %>
+</div>
+
+
+	<h1 class="top-title">welcome to <span class="glyphicon glyphicon-book top-subtitle" aria-hidden="true">Bookers !!</span></h1>
+	<p class="top-text">In <span class="glyphicon glyphicon-book" aria-hidden="true">Bookers</span>,<br>you can share and exchange your opinions , inpressions , and emotions!<br>about various books!</p>
+
+	<div class="btn-in">
+	<%= link_to "Log in", new_user_session_path, class: 'top-button btn' %>
+	</div>
+	<div class="btn-up">
+		<%= link_to "Sign up", new_user_registration_path, class: "top-button btn" %>
+	</div>
+
+
+

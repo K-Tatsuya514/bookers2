@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookers2</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script src="https://kit.fontawesome.com/ea33a71d65.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header class="clear-fix">
+    <div class="header-content">
+    <h1 class="header-title">Bookers</h1>
+    <div class="slidemanu">
+      <ul class=" navbar-nav" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to user_path(current_user.id) do %>
+          <span class="glyphicon glyphicon-home" aria-hidden="true">Home</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to users_path do %>
+          <span class="glyphicon glyphicon-user" aria-hidden="true">Users</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to books_path do %>
+          <span class="glyphicon glyphicon-book" aria-hidden="true">Books</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete, notice: "You have created book successfully." do %>
+          <span class="glyphicon glyphicon-log-out" aria-hidden="true">logout</span>
+          <% end %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to '/' do %>
+          <span class="glyphicon glyphicon-home" aria-hidden="true">Home</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '/home/about' do %>
+          <span class="glyphicon glyphicon-link" aria-hidden="true">About</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_registration_path do %>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true">sign up</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_session_path do %>
+          <span class="glyphicon glyphicon-log-in" aria-hidden="true">login</span>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  </header><!-- /header -->
+
+<div class="content">
+  <%= yield %>
+</div>
+
+
+  <footer>
+    <p>CopyRight Infratop.inc</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<%= render 'books/error' %>
+
+<div class="container">
+	<div class="row">
+	<%= render 'users/list' %>
+	<div class="Books col-xs-9">
+		<h1 class="title">Books</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Title</th>
+					<th>Opinion</th>
+				</tr>
+			</thead>
+			<% @books.each do |book| %>
+			<tbody>
+				<tr>
+					<td class="photo"><%= link_to user_path(book.user.id) do %>
+							<%= attachment_image_tag book.user, :profile_image, :fill, 40,40, format: 'jpeg', fallback: 'no_image.jpeg', class: 'image' %>
+						<% end %>
+					</td>
+					<td>
+						<%= link_to book.title, book_path(book.id) %>
+					</td>
+					<td><%= book.body %></td>
+				</tr>
+			</tbody>
+			<% end %>
+		</table>
+	</div>
+</div>
+</div>

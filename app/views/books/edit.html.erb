@@ -1,0 +1,24 @@
+<div class=book-edit>
+
+	<h1 class="titile">Editing Book</h1>
+
+	<%= render 'books/error' %>
+
+	<%= form_for(@book) do |f| %>
+	<div>
+		<div class="form-title"><%= f.label :title %></div>
+		<%= f.text_field :title, class: 'book-edit-field' %>
+	</div>
+	<div>
+		<div class="form-title">Opinion</div>
+		<%= f.text_area :body, class: 'book-edit-field' %>
+	</div>
+	<%= f.submit class: "btn" %>
+	<% end %>
+	<div>
+		<%= link_to 'Show', book_path(@book.id), class: 'edbtn' %>
+		<span> |</span>
+		<%= link_to 'Back', books_path, class: 'edbtn' %>
+	</div>
+
+</div>
